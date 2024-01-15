@@ -9,6 +9,6 @@ sudo docker-compose up
 this creates a container-based postgresql server that lessons on port 8080.
 your server's username and password are respectively `user` and `pass` (you can change them in docker-compose.yml)
 
-now you should import the data provided for the specified section. first define tables using provided queries,then using pycharm just add the connection to your database and import the data from `data` folder in the provided panel
+now you should import the data provided for the specified section. first define tables using provided queries,then using pycharm just add the connection to your database and import the data from `data` folder in the provided panel (initial data for employees_database and Faculty_of_Technology_management_system are provided in queries)
 
 then just run the Queries and see what happens :)
