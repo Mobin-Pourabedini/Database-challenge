@@ -46,11 +46,13 @@ VALUES  (1, 45000.00, 60000.00),
         (2, 60001.00, 75000.00),
         (3, 75001.00, 90000.00);
 
+-- First Part
 SELECT grade_id, SUM(salary)
 FROM salary_grade JOIN employee ON salary>Salary_Grade.min_salary AND salary<Salary_Grade.max_salary
 GROUP BY grade_id
 ORDER BY grade_id;
 
+-- Second Part
 SELECT MAX_SAL.department_id, first_name, last_name, Employee.salary
 FROM (
          SELECT department_id, MAX(salary) AS salary
@@ -59,7 +61,7 @@ FROM (
      ) AS MAX_SAL
 JOIN employee ON employee.salary = MAX_SAL.salary;
 
-
+-- Third Part
 CREATE OR REPLACE FUNCTION calc_avg_exp(input_department_name VARCHAR(50))
 RETURNS FLOAT AS $$
 DECLARE
@@ -83,11 +85,12 @@ $$ LANGUAGE plpgsql;
 
 SELECT calc_avg_exp('HR'); -- This will return the sum of 5 and 7, which is 12
 
-
+-- Forth Part
 SELECT department_name, calc_avg_exp(department_name)
 FROM department
 WHERE 8 < calc_avg_exp(department_name);
 
+-- Fifth PArt
 CREATE OR REPLACE FUNCTION calc_higher_than_avg()
 RETURNS TABLE (d_name varchar, d_avg float) AS $$
 DECLARE
